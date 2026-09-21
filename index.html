@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#ffd6e0" />
+<title>Happy Birthday MaM 💖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Floating background particles -->
+<div class="bg-particles" id="particles"></div>
+
+<!-- Music toggle -->
+<button class="music-btn" id="musicBtn" title="Play music" aria-label="Toggle music">🎵</button>
+<audio id="bgMusic" loop>
+  <!-- REPLACE with your mp3: <source src="your-song.mp3" type="audio/mpeg"> -->
+</audio>
+
+<!-- ================= PAGE 1: LANDING ================= -->
+<section class="page active" id="page0">
+  <div class="glow-ring"></div>
+  <div class="enter-wrap">
+    <div class="hero-emoji">🎈</div>
+    <h1 class="title">Hey MaM…</h1>
+    <p class="subtitle">something special awaits you ✨</p>
+    <p style="opacity:.78;">A little corner of the internet, made just for you, Payal 💖</p>
+    <button class="btn" onclick="goTo(1)">Enter 💫</button>
+  </div>
+</section>
+
+<!-- ================= PAGE 2: HAPPY BIRTHDAY ================= -->
+<section class="page" id="page1">
+  <h1 class="title" id="hbTitle">Happy Birthday, Payal!</h1>
+  <p class="subtitle">— MaM, my favorite human —</p>
+
+  <div class="cake-wrap">
+    <div class="cake" id="cake" title="Tap the cake to blow the candles!">
+      <div class="candles">
+        <div class="candle"><span class="flame"></span></div>
+        <div class="candle"><span class="flame"></span></div>
+        <div class="candle"><span class="flame"></span></div>
+      </div>
+      <div class="tier tier-top"></div>
+      <div class="tier tier-mid"></div>
+      <div class="tier tier-bot"></div>
+      <div class="plate"></div>
+    </div>
+  </div>
+  <p class="photo-hint">👆 Tap the cake to blow out the candles</p>
+
+  <div class="type-line" id="typeLine"></div>
+
+  <button class="btn" onclick="goTo(2)">Read My Letter 💌</button>
+</section>
+
+<!-- ================= PAGE 3: LETTER ================= -->
+<section class="page" id="page2">
+  <h2 class="title">A Letter for You</h2>
+  <div class="letter" id="letterBox">
+    <p style="animation-delay:.1s">Dear MaM,</p>
+    <p style="animation-delay:.5s">Some people walk into your life and quietly become your whole world. You are that person for me — my safe place, my chaos partner, my loudest laugh and my softest shoulder.</p>
+    <p style="animation-delay:1s">Thank you for every 2 AM talk, every silly fight, every "I'm on my way" when I needed you. You make ordinary days feel like festivals.</p>
+    <p style="animation-delay:1.5s">Today the world celebrates the day you were born — but honestly, I celebrate you every single day. You deserve every bit of love, joy, and magic that exists.</p>
+    <p style="animation-delay:2s">Happy Birthday, Payal. Here's to us, forever. 💖</p>
+    <div class="sign">— Your Bestie, Forever</div>
+  </div>
+  <button class="btn" onclick="goTo(3)">See Our Memories 📸</button>
+</section>
+
+<!-- ================= PAGE 4: GALLERY ================= -->
+<section class="page" id="page3">
+  <h2 class="title">Our Little Memories</h2>
+  <p class="subtitle" style="font-size: clamp(1rem, 3.5vw, 1.2rem);">tap each card to flip 💫</p>
+  <div class="gallery">
+    <!-- REPLACE emoji with <img src="photo1.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
+    <div class="photo-card" onclick="this.classList.toggle('flipped')">
+      <div class="photo-inner">
+        <div class="photo-face photo-front">📸</div>
+        <div class="photo-face photo-back">That day we laughed till we cried 😂</div>
+      </div>
+    </div>
+    <div class="photo-card" onclick="this.classList.toggle('flipped')">
+      <div class="photo-inner">
+        <div class="photo-face photo-front">💃</div>
+        <div class="photo-face photo-back">Our crazy dance sessions 🕺</div>
+      </div>
+    </div>
+    <div class="photo-card" onclick="this.classList.toggle('flipped')">
+      <div class="photo-inner">
+        <div class="photo-face photo-front">🍕</div>
+        <div class="photo-face photo-back">Food, gossip, repeat 🍟</div>
+      </div>
+    </div>
+    <div class="photo-card" onclick="this.classList.toggle('flipped')">
+      <div class="photo-inner">
+        <div class="photo-face photo-front">🌙</div>
+        <div class="photo-face photo-back">Late-night talks that healed me 💫</div>
+      </div>
+    </div>
+  </div>
+  <button class="btn" onclick="goTo(4)">One More Surprise 🎁</button>
+</section>
+
+<!-- ================= PAGE 5: SURPRISE ================= -->
+<section class="page" id="page4">
+  <h2 class="title">A Surprise for You 🎁</h2>
+  <p class="subtitle" style="font-size: clamp(1rem, 3.5vw, 1.2rem);">tap the gift box</p>
+
+  <div class="gift-wrap">
+    <div class="gift" id="gift" role="button" aria-label="Open gift">
+      <div class="gift-lid" id="giftLid"></div>
+      <div class="gift-bow">🎀</div>
+      <div class="gift-box"></div>
+      <div class="gift-ribbon"></div>
+    </div>
+  </div>
+
+  <div id="surpriseContent" style="display:none; width:100%;">
+    <p style="font-family:'Dancing Script',cursive; font-size: clamp(1.4rem, 4.5vw, 1.8rem); color:#a0658a; margin-bottom:8px;">
+      A Little Note From My Heart 💗
+    </p>
+
+    <ul class="reasons" id="reasonsList">
+      <li><span class="em">💗</span>You are genuinely one of the most special people I've had in my life.</li>
+      <li><span class="em">😂</span>Thank you for all the laughs, random talks, and crazy little moments we shared.</li>
+      <li><span class="em">🥹</span>I hope that whenever you remember these moments, you remember me too.</li>
+      <li><span class="em">💭</span>And if someday you randomly think about our old conversations, I hope you smile a little.</li>
+      <li><span class="em">🫶🏻</span>No matter how much things change, I hope our friendship always stays a sweet memory in your heart.</li>
+      <li><span class="em">🌸</span>So whenever you look back at these days... don't forget your crazy bestie. 😭😂</li>
+      <li class="msg-sign" id="msgSign">— Always yours, your bestie 💖</li>
+    </ul>
+
+    <button class="btn" id="finalBtn" style="margin-top:24px;">I Like You, MaM 💖</button>
+  </div>
+</section>
+
+<!-- Nav dots -->
+<div class="nav-dots" id="navDots">
+  <div class="dot active" onclick="goTo(0)"></div>
+  <div class="dot" onclick="goTo(1)"></div>
+  <div class="dot" onclick="goTo(2)"></div>
+  <div class="dot" onclick="goTo(3)"></div>
+  <div class="dot" onclick="goTo(4)"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
